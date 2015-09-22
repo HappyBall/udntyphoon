@@ -4,6 +4,7 @@ if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.u
 }
 
 var selected_pic = "p1.jpg";
+var FBshare_pic_url = "http://udnmoon.herokuapp.com/img/";
 
 
 //-------------------------------------------------------------------------------------------------------
@@ -25,8 +26,8 @@ $(document).ready(function(){
 		  name: '中秋節來囉！',
 		  caption: '聯合報系新媒體部製作',
 		  description: "測試測試",
-		  link: 'http://p.udn.com.tw/upf/newmedia/2015_data/20150429_udnlabor/udnlabor/',
-		  picture: selected_pic,
+		  link: 'http://udnmoon.herokuapp.com',
+		  picture: FBshare_pic_url + selected_pic,
 		}, function(response){
 			if(response && response.post_id){
 				alert('你的結果已經成功分享到塗鴉牆！');
