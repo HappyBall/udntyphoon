@@ -55,8 +55,8 @@ $(document).ready(function(){
 			$("#stop-replay-btn img").attr("src", "img/replay_btn1.png");
 			var randomInt = getRandomInt(1,15);
 			// $(".main-animation img").attr({"src": "img/p" + randomInt + ".jpg", "width": "500px"});
-			$(".main-img img").attr({"src": "img/p" + randomInt + ".jpg", "width": "500px"});
-			$(".main-img").css("display", "table");
+			// $(".main-img img").attr({"src": "img/p" + randomInt + ".jpg", "width": "500px"});
+			$("#display-img-" + randomInt).css("display", "table");
 			$(".main-animation").css("display", "none");
 
 			selected_pic_num = randomInt;
@@ -66,7 +66,7 @@ $(document).ready(function(){
 			$("#stop-replay-btn img").attr("src", "img/stop_btn1.png");
 			animation_status = "animate";
 			// $(".main-animation img").attr("src", "img/moon_00.gif");
-			$(".main-img").css("display", "none");
+			$("#display-img-" + selected_pic_num).css("display", "none");
 			$(".main-animation").css("display", "table");
 		}
 		
