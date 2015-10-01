@@ -9,6 +9,7 @@ x_padding = 8;
 y_padding = 30;
 
 regionList = [];
+region_statics = {};
 
 //-------------------------------------------------------------------------------------------------------
 
@@ -165,6 +166,13 @@ $(document).ready(function(){
 	d3.csv("data/typhoon_data.csv", function(data){
 		for (var i in data){
 
+            if(!(data[i]["station-region"] in region_statics))
+                region_statics[data[i]["station-region"]] = {};
+            if(!(data[i]["type"] in region_statics[data[i]["station-region"]]))
+                region_statics[data[i]["station-region"]][data[i]["type"]] = 0;
+
+            region_statics[data[i]["station-region"]][data[i]["type"]] += 1;
+
 			if(regionList.length < data[i]['station-num']){
 				regionList.push(data[i]["station-region"]);
 			}
@@ -176,7 +184,8 @@ $(document).ready(function(){
 			original_x_dict[data[i]["station-region"]][data[i]["date"]] = (Object.size(original_x_dict[data[i]["station-region"]]) + 1) * x_padding + 80;
 		}
 
-		console.log(regionList);
+		// console.log(regionList);
+        // console.log(region_statics);
 
 		// console.log(original_x_dict);
 
@@ -184,12 +193,47 @@ $(document).ready(function(){
 
 		svg = d3.select("#third-chart").append("svg").attr({"width": w, "height": h});
 
-		tip = d3.tip().offset([-10, 0]).attr('class', 'd3-tip')
+		tip = d3.tip().offset(function(d){
+                    if((1914 + (d["station-num"] * y_padding) - $(".d3-tip").height()) <= $(document).scrollTop())
+                        return [10, 0];
+                    else
+                        return [-10, 0];
+                })
+                .direction(function(d){
+                    if((1914 + (d["station-num"] * y_padding) - $(".d3-tip").height()) <= $(document).scrollTop())
+                        return "s";
+                    else
+                        return "n";
+                })
+                .attr('class', 'd3-tip')
 				.html(function(d){
 					return "<div class = 'tip-top'> <div class = 'fl-left tip-typhoonname-block'><div class = 'tip-titles'>颱風名稱</div><div class = 'tip-typhoon-name'>" + d["typhoon"] +"</div></div> <div class = 'fl-left tip-date-block'> <div class = 'tip-titles'>日期</div><div class = 'tip-date'>" + d["date"] +"</div> </div> </div> <div class = 'tip-mid top-border'><div class = 'fl-left tip-monent-wind-block'><div class = 'tip-titles'>瞬間最大風力</div><div class = 'tip-moment-wind'>" + d["wind-moment-strength"] +"</div></div> <div class = 'fl-left tip-avg-wind-block'> <div class = 'tip-titles'>平均最大風力</div><div class = 'tip-avg-wind'>" + d["wind-avg-strength"] +"</div> </div> </div> <div class = 'tip-bot top-border'><div class = 'tip-titles'>日雨量</div><div class = 'tip-rain'>" + d["daily-rain"] + "</div></div>"
 				});
 
+        tip_region = d3.tip().attr('class', 'd3-tip-region')
+                .offset(function(d){
+
+                    if((1914 + parseInt(d.attr("y")) - $(".d3-tip-region").height()) -60 <= $(document).scrollTop())
+                        return [10, 0];
+                    else
+                        return [-10, 0];
+                })
+                .direction(function(d){
+                    if((1914 + parseInt(d.attr("y")) - $(".d3-tip-region").height()) -60<= $(document).scrollTop())
+                        return "s";
+                    else
+                        return "n";
+                })
+                .html(function(d){
+                    var type1 = isNaN(region_statics[d.text()]["1"]) ? 0 : region_statics[d.text()]["1"];
+                    var type2 = isNaN(region_statics[d.text()]["2"]) ? 0 : region_statics[d.text()]["2"];
+                    var type3 = isNaN(region_statics[d.text()]["3"]) ? 0 : region_statics[d.text()]["3"];
+                    var type4 = isNaN(region_statics[d.text()]["4"]) ? 0 : region_statics[d.text()]["4"];
+                    return "風雨達標準的正常日：" + type1 + "天<br>風雨未達標準的颱風假：" + type2 + "天<br>風雨如預期的颱風假：" + type3 + "天<br>風雨未達標準的正常日：" + type4 + "天<br>誤放颱風假比率：" + Math.round((type2/(type2 + type3)*10000))/100 + "%";
+                });
+
 		svg.call(tip);
+        svg.call(tip_region);
 
 		svg.selectAll('rect').data(data).enter().append('rect')
 		.attr({
@@ -225,7 +269,14 @@ $(document).ready(function(){
 					'x': 20,
 					'y': (regionList.indexOf(regionList[j])+1) * y_padding + 13,
 					'fill': "#7c7c7c"
-				});
+				})
+                .on("mouseover", function(){
+                    console.log($(this).text());
+                    tip_region.show($(this));
+                })
+                .on("mouseout", function(){
+                    tip_region.hide($(this));
+                });
 		}
 
 	});
