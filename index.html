@@ -4,21 +4,21 @@
 	<link rel="shortcut icon" href="img/udn_title_icon.jpg">
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>中秋節來啦！</title>
+	<title>颱風假有無風雨？ 10年大數據揭密</title>
 	
 	<!-- for Facebook -->
-	<!-- <meta property="og:title" content="電視為什麼這麼難看？ 數據告訴你真相"/> 
+	<!-- <meta property="og:title" content="颱風假有無風雨？ 10年大數據揭密"/> 
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content="http://p.udn.com.tw/upf/newmedia/2015_data/20150729_tv_data/udn_tv_data/index.html"/>
 	<meta property="og:image" content="http://p.udn.com.tw/upf/newmedia/2015_data/20150729_tv_data/udn_tv_data/img/FB.jpg"/>
 	<meta property="og:site_name" content="聯合報系新媒體部"/> 
-	<meta property="og:description" content="電視轉來轉去，沒一台好看的！」這樣的抱怨每天出現在你我的生活中，為什麼電視節目這麼難看？你每個月繳的500元有線電視費花到哪去了？數據和動畫為你一一拆解。"/> -->
+	<meta property="og:description" content="每當颱風的腳步逼近，會不會放假總成為熱門話題。我們放過多少次颱風假？颱風假隱含哪些考量？本專題整理全國近10年的颱風假，從數字找答案。"/> -->
 	
 	<!-- for Google -->
-	<!-- <meta name="description" content="電視轉來轉去，沒一台好看的！」這樣的抱怨每天出現在你我的生活中，為什麼電視節目這麼難看？你每個月繳的500元有線電視費花到哪去了？數據和動畫為你一一拆解。" />
+	<!-- <meta name="description" content="每當颱風的腳步逼近，會不會放假總成為熱門話題。我們放過多少次颱風假？颱風假隱含哪些考量？本專題整理全國近10年的颱風假，從數字找答案。" />
 	<meta name="author" content="聯合報系新媒體部" />
 	<meta name="copyright" content="聯合報系新媒體部" />
-	<meta name="application-name" content="電視為什麼這麼難看？ 數據告訴你真相" /> -->
+	<meta name="application-name" content="颱風假有無風雨？ 10年大數據揭密" /> -->
 	
 	<!-- our google analytics -->
 	
@@ -61,8 +61,11 @@
   	<script type="text/javascript" src="js/bootstrap.js"></script>
   	<script type="text/javascript" src="js/d3.js"></script>
   	<script type="text/javascript" src="js/d3tip.js"></script>
-  	<script type="text/javascript" src="js/moon_index.js"></script>
-  	
+  	<script type="text/javascript" src="js/typhoon_index.js"></script>
+  	<script type="text/javascript" src="js/highcharts.js"></script>
+  	<!--<script type="text/javascript" src="js/exporting.js"></script>-->
+  	<script type="text/javascript" src="js/heatmap.js"></script>
+
   	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
@@ -73,94 +76,121 @@
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=481291578711616";
+	  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.4&appId=926265494102828";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 
+	<img id = "cover-animation" src="img/cover_film.gif">
+	<!-- <video autoplay loop>r
+		<source src="video/cover_film.mp4" type="video/mp4">
+	</video> -->
 	<div class = "container">
-		<div class = "main-animation">
-			<img src="img/moon_00.gif">
+		<div class = "big-title">颱風假有無風雨？ 10年大數據揭密</div>
+		<div class = "fore-words">
+			每當颱風的腳步逼近，會不會放假總成為熱門話題。<br>
+			我們放過多少次颱風假？<br>
+			颱風假隱含哪些考量？<br>
+			本專題整理全國近10年的颱風假，從數字找答案。
 		</div>
-
-		<div class = "display-imgs" id = "display-img-1">
-			<img src="img/p1.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-2">
-			<img src="img/p2.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-3">
-			<img src="img/p3.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-4">
-			<img src="img/p4.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-5">
-			<img src="img/p5.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-6">
-			<img src="img/p6.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-7">
-			<img src="img/p7.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-8">
-			<img src="img/p8.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-9">
-			<img src="img/p9.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-10">
-			<img src="img/p10.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-11">
-			<img src="img/p11.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-12">
-			<img src="img/p12.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-13">
-			<img src="img/p13.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-14">
-			<img src="img/p14.jpg" width = "500px">
-		</div>
-
-		<div class = "display-imgs" id = "display-img-15">
-			<img src="img/p15.jpg" width = "500px">
-		</div>
-
-		<div class = "btn-container">
-
-			<div class = "buttons" id = "stop-replay-btn">
-				<img src="img/stop_btn1.png">
+		<div class = "logo-container">
+			<div class = "logos fl-left">
+				<a href="https://www.facebook.com/udnNewMediaLab?fref=ts" target="_blank">
+					<img id = "newmedia-logo" src="img/nmlogo.png">
+				</a>
 			</div>
-
-			<div class = "buttons" id = "share-btn">
-				<img src="img/share_btn1.png">
+			<div class = "logos fl-left">
+				<a href="http://theme.udn.com/theme/story/6772" target="_blank">
+					<img id = "udn-logo" src="img/udnlogo.png">
+				</a>
 			</div>
+		</div>
 
-		<!-- <button type="button" class="btn btn-default" id = "stop-btn">停</button>
+		<div class = "content top-border">
+			颱風天放假與否，是各縣市政府根據<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=S0110022" target="_blank">《天然災害停止上班及上課處理辦法》</a>，依照中央氣象局預測風力、預測或觀測的雨量來決定。若有交通、電力輸送的困難，或土石流發生之虞時，亦有可能放假。各鄉鎮市區機關、學校也可以依實際情形決定。<br><br>在本則專題中，颱風假次數計算標準如下：若一縣市全部的鄉鎮市區，一天中任何時段有停班或停課，即算該縣市放假一次。綠島、蘭嶼因地理位置特殊，故挑出列為統計項目。
+		</div>
+		<div class = "mid-title top-border">歷年颱風假的風雨有多大？</div>
+		<div class = "content">
+			當風雨比預期來得小時，我們免於一次災害。然而，颱風多變、難以預測的特性也曾讓各縣市政府誤判。<br>
+			《天然災害停止上班及上課處理辦法》指出，根據氣象預報，颱風暴風半徑四小時內可能經過之地區，若平均風力可達七級以上，或陣風十級以上時，縣市政府可以發布停班、停課。<br>
+			雨量則一直到2010年1月，該辦法經修訂後才納為停班停課指標，以24小時內預測累積雨量作為判斷依據。各區依環境狀況而有不同標準，部分縣市也有山區、平地之別。<br>
+			本專題利用2006年以來颱風期間中央氣象局「局屬測站」每日實際測量值，單就風力和雨量來對照放假標準，把颱風近台的日期區分成四種情況。<br><br>
+			除了桃園新屋測站因較晚設站，僅記錄31天外，此列其餘測站皆有121天。圖中可發現蘭嶼十年內「風雨達標準的上班日」次數高達61次，但這可能反映當地颱風過後，風力仍大的現象。<br><br>
+			蘭嶼氣象站主任黃瑞中則表示，事實上蘭嶼的風本身就大，去年「最大瞬間陣風」達7級以上的天數就高達273天。另外氣象站也位在山區，測得的風力更為強勁。<br><br>
+			板橋、新竹、台中、宜蘭測站則在十年內，皆沒有遇到颱風天風雨達標準，但未放假的情形。<br><br>
+			另外，對於「風雨未達標準的颱風假」，宜蘭最多曾有22次，位於新北市的板橋也有21次。若我們把這項數值除以全部的颱風假，純粹從數據觀察「放錯假比率」，最高的地區是板橋及台中，皆為73%。<br><br>
+			而哪些地區相對來說，較不常受颱風肆虐？「風雨未達標準的上班日」最多次的測站是新竹97天，嘉義也有96天。
 
-		<button type="button" class="btn btn-default" id = "replay-btn">重玩</button>
+		</div>
+		<div class = "chart-container" id = "third-chart-container">
+			<div id = "third-chart"></div>
+			<div id = "chart-icons">
+				<div class = "icon fl-left" id = "icon1"></div>
+				<div class = "icon-text fl-left">風雨達標準的正常天</div>
+				<div class = "icon fl-left" id = "icon2"></div>
+				<div class = "icon-text fl-left">風雨小颱風假</div>
+				<div class = "icon fl-left" id = "icon3"></div>
+				<div class = "icon-text fl-left">風雨如預期的颱風假</div>
+				<div class = "icon fl-left" id = "icon4"></div>
+				<div class = "icon-text fl-left">風雨未達標準的正常天</div>
+			</div>
+			<div class = "chart-ps" id = "chart3-ps">
+				資料來源：本報整理自<a href="http://rdc28.cwb.gov.tw/TDB/" target="_blank">颱風資料庫</a>、<a href="http://www.cwb.gov.tw/V7/climate/dailyPrecipitation/dP.htmhttp://www.cwb.gov.tw/V7/climate/dailyPrecipitation/dP.htm" target="_blank">中央氣象局</a>、<a href="http://www.dgpa.gov.tw/lp.asp?ctNode=403&CtUnit=180&BaseDSD=7">行政院人事行政總處</a><br><br>註：放假的因素不只局限於風力及雨量，還有風險上的考量，本圖僅供參考。<br><br>
+				註：本圖以「測站」為單位，單一縣市內各區的風雨可能受地形影響，若套用結果至整體縣市可能有所侷限。<br><br>
+				註：統計時間自2006年至2015年8月。桃園市新屋較晚設站，自2013年7月才開始統計。<br><br>
+				註：風力資料是先以颱風資料庫查詢颱風期間每日風速，再換算成蒲福風級；雨量則採用中央氣象局每日雨量。雖然全台自動氣象站遍布，但十年期間資料偶有缺漏，故此表採用中央氣象局局屬氣象站或觀測站資料，苗栗縣、彰化縣、雲林縣境內因無局屬測站故不在此列。<br><br>
+				註：南投縣雨量之停班課標準為平地350mm及山區200mm，日月潭站以山區作為衡量標準。恆春鎮測站於2011/8/30、2011/8/28、2009/10/5、2007/8/8有停班課記錄，但全屏東縣並無統一放假。
+			</div>
+			<div class = "content">
+				颱風假的目的是衡量災害風險，多一層防範措施以保護民眾生命安全。謝明昌強調，台灣的地形複雜、變數很多，若路徑差一點點，產生的風雨就可能有所不同。<br><br>
+				「預測都有不確定。」謝明昌補充，氣象局每三個小時就會將受影響區域的風雨資料、預報資料提供給各縣市政府以協助判斷。
+			</div>
+			
+		</div>
+		<div class = "mid-title top-border">
+			哪裡放最多颱風假？
+		</div>
+		<div class = "content">
+			從數字上可以看出，颱風一來總是首當其衝的蘭嶼鄉為全國之冠，過去15年放了62次颱風假；本島第一名是宜蘭縣50次。根據中央氣象局1911年至2013年的統計，登陸颱風以宜蘭至花蓮、花蓮至成功段為最大宗，共有41.6%颱風由此登陸。<br><br>
+			颱風假數最少的區域則在外島的連江縣和金門縣，中央氣象局防災科科長謝明昌解釋，除了受到路徑影響外，颱風若經過台灣，時常受到地形破壞，強度因此減弱。
+		</div>
+		<div class = "mid-title">
+			全台各地颱風假數
+		</div>
+		<div class = "chart-container" id = "first-chart-container">
+			<div class = "highchart-container fl-left" id = "first-highchart"></div>
+			<div class = "chart-ps fl-left" >
+				資料來源：本報整理自<a href="http://www.dgpa.gov.tw/lp.asp?ctNode=403&CtUnit=180&BaseDSD=7" target="_blank">行政院人事行政總處</a><br><br>
+				註：資料統計自2001年7月桃芝颱風至2015年8月天鵝颱風。<br><br>
+				註：因統計時間涵括五都升格、桃園縣升格，舊制資料併入新行政區作計算，並以面積較大的舊制行政區為準。如臺中縣、舊臺中市以臺中縣資料為準，再併入新臺中市計算。
+			</div>
+		</div>
+		<div class = "mid-title top-border">
+			颱風假都週末才放？
+		</div>
+		<div class = "content">
+			不少人都曾有這個疑惑，總覺得颱風都挑在六、日撲台，不但沒放到假，更壞了預定的計畫。若觀察近十年的數字，其結果確實與民眾的感受相符。全國除了澎湖外，停班課最多的次數皆落在星期六，惟部分區域可能平手。<br><br>
+			理論上，颱風假落在六、日的機率是七分之二（約28.6%）；不過從數據上看來，目前各地皆超過，並以台中市、彰化縣的50%為最高。但要注意的是，因為十年來所累積的颱風假數仍算有限，統計上的樣本數不完全充分，這項疑問會不會破除，仍有待時間累積。
+		</div>
+		<div class = "chart-container" id = "second-chart-container">
+			<div class = "highchart-container fl-left" id = "second-highchart"></div>
+			<div class = "chart-ps fl-left" >
+				資料來源：本報整理自<a href="http://www.dgpa.gov.tw/lp.asp?ctNode=403&CtUnit=180&BaseDSD=7" target="_blank">行政院人事行政總處</a><br><br>
+				註：2005年龍王颱風襲台後，全國各地方政府才開始在六日公布是否停班、課。故本資料統計時間為2006年至2015年8月<br><br>
+				註：因統計時間涵括五都升格、桃園縣升格，舊制資料併入新行政區作計算，並以面積較大的舊制行政區為準。如臺中縣、舊臺中市以臺中縣資料為準，再併入新臺中市計算。
+			</div>
+		</div>
+		
 
-		<button type="button" class="btn btn-default" id = "share-btn">分享</button> -->
+		<div class = "editors top-border">
+			聯合報系新媒體部／楊棋宇、呂紹齊、實習編輯柯皓翔&nbsp;&nbsp;製作
+		</div>
 
+		<div id = "fb-like-container">
+			<div class="fb-like" data-href="http://p.udn.com.tw/upf/newmedia/2015_data/20150930_udntyphoon/udntyphoon/index.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		</div>
+		<div id = "fb-comment-container">
+			<div class="fb-comments" data-href="http://p.udn.com.tw/upf/newmedia/2015_data/20150930_udntyphoon/udntyphoon/index.html" data-numposts="5" data-width="100%"></div>
 		</div>
 	</div>
-
 </body>
 </html>
-

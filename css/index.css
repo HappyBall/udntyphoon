@@ -1,28 +1,226 @@
+video{
+	width: 100%;
+}
+
 body{
-	background-image: url("../img/bg.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-color: #1f283d;
-	padding-top: 60px;
+	font-family: 微軟正黑體;
+	padding-bottom: 50px;
 }
 
-.main-animation{
+.big-title{
+	font-size: 60px;
+	font-weight: bold;
 	display: table;
-	margin: auto;
+	margin: 30px auto;
+	color: #666254;
 }
 
-.btn-container{
+.fore-words{
+	font-size: 16px;
 	display: table;
-	margin: auto;
+	margin: 30px auto;
+	text-align: center;
+	color: #7c7c7c;
 }
 
-.buttons{
+#cover-animation{
+	width: 100%;
+}
+
+.fl-left{
+	float: left;
+}
+
+.logos{
+	/*width: 150px;*/
 	display: table;
-	cursor: pointer;
+}
+
+.logo-container{
+	display: table;
+	margin: 30px auto 10px;
+}
+
+#newmedia-logo{
+	width: 175px;
+	margin-right: 10px;
+}
+
+#udn-logo{
+	width: 175px;
+	margin-top: 7px;
+}
+
+.content{
+	font-size: 20px;
+	margin-top: 30px;
+	line-height: 32px;
+	text-align: justify;
+}
+
+.mid-title{
+	margin-top: 30px;
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.top-border{
+	border-top: 1px solid #7c7c7c;
+	padding-top: 20px;
+}
+
+.chart-container{
+	display: table;
 	margin-top: 30px;
 }
 
-.display-imgs{
-	display: none;
-	margin: auto;
+.highchart-container{
+	height: 750px;
+	width: 60%;
+}
+
+#third-chart{
+	width: 100%;
+	/*height: 750px;*/
+}
+
+.chart-ps{
+	width: 40%;
+	font-size: 16px;
+	line-height: 25px;
+	padding-left: 20px;
+	margin-top: 40px;
+	color: #7c7c7c;
+}
+
+#chart-icons{
+	display: table;
+
+}
+
+#chart3-ps{
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.icon{
+	width: 30px;
+	height: 15px;
+	margin-top: 3px;
+	margin-left: 40px;
+}
+
+.icon:first-child{
+	margin-left: 20px;
+}
+
+.icon-text{
+	color: #7c7c7c;
+	font-size: 16px;
+	margin-left: 10px;
+}
+
+#icon1{
+	background-color: #c65454;
+}
+
+#icon2{
+	background-color: #eacd71;
+}
+
+#icon3{
+	background-color: #97d83c;
+}
+
+#icon4{
+	background-color: #eaeaea;
+}
+
+.d3-tip {
+	/*line-height: 1;*/
+	/*font-weight: bold;*/
+	padding: 20px 20px 20px 20px;
+	background: #fff;
+	/*color: #fff;*/
+	/*border-radius: 10px;*/
+	font-family: 微軟正黑體;
+	/*width: 400px;*/
+	z-index: 20;
+	border: 1px solid #cccccc;
+}
+
+.tip-top{
+	display: table;
+	/*padding: 10px;*/
+	padding-bottom: 20px;
+}
+
+.tip-mid{
+	display: table;
+	/*padding: 10px;*/
+}
+
+.tip-bot{
+	display: table;
+	/*padding: 10px;*/
+	width: 100%;
+	padding-bottom: 0;
+}
+
+.tip-titles{
+	font-size: 20px;
+}
+
+.tip-typhoon-name{
+	font-size: 32px;
+	color: #7c7c7c;
+}
+
+.tip-date{
+	font-size: 20px;
+	color: #7c7c7c;
+	margin-top: 10px
+}
+
+.tip-date-block{
+	display: table;
+	margin-left: 60px;
+}
+
+.tip-avg-wind-block{
+	display: table;
+	margin-left: 40px;
+}
+
+.tip-moment-wind{
+	color: #57a8e5;
+	font-size: 70px;
+}
+
+.tip-avg-wind{
+	color: #4485ad;
+	font-size: 70px;
+}
+
+.tip-rain{
+	color: #2e5e8e;
+	font-size: 70px;
+}
+
+.editors{
+	margin-top: 20px;
+	color: #7c7c7c;
+	font-size: 16px;
+}
+
+#fb-like-container{
+	margin-top: 30px;
+	display: table;
+}
+
+#fb-comment-container{
+	margin-top: 30px;
+	display: table;
+	width: 100%;
 }
